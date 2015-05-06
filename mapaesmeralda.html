@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ratchet</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width">
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="196x196" href="/icon.png">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="icon" href="favicon.ico">
+    <meta name="mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="css/ratchet.min.css">
+
+      
+    <link href="css/styles.css" rel="stylesheet">
+    <script src="lib/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+
+    <!-- Leaflet -->
+  <link rel="stylesheet" href="js/leaflet/leaflet.css" />
+  <script src="js/leaflet/leaflet.js"></script>
+  <script src="http://maps.google.com/maps/api/js?v=3.2&sensor=false"></script>
+  <script src="js/leaflet/leaflet-plugins/layer/tile/Google.js"></script>
+  <link rel="stylesheet" href="js/leaflet/awesome-markers/leaflet.awesome-markers.css">
+  <script src="js/leaflet/awesome-markers//leaflet.awesome-markers.min.js"></script>
+
+  
+ 
+   
+
+  </head>
+  <body ontouchstart="">
+    <header class="bar bar-nav">
+      <a class="icon icon-left-nav pull-left" href="esmeralda1.html" data-transition="slide-out"></a>
+      <h1 class="title">Mapa del Sendero</h1>
+    </header>
+    <div class="content">
+      <div class="card">
+          <div class="content-padded">
+            
+ 
+            
+             <div id="map"></div>
+             
+             <a class="navigate-right btn btn-block btn-primary" href="perfilesmeralda.html" data-transition="slide-in">VER PERFIL</a> 
+             <a class="navigate-right btn btn-block btn-primary" href="tramosesmeralda.html" data-transition="slide-in">VER TRAMOS</a>
+           
+           
+   
+             
+          </div>
+       
+      </div>
+    </div>
+
+    <script type="text/javascript">
+    var map;
+    var networkState;
+
+
+      //posicionamiento con gps
+
+ function mostrarUbicacion(){
+                navigator.geolocation.getCurrentPosition( lecturaGPS , errorGPS , {enableHighAccuracy:true} )
+            }
+            
+            function lecturaGPS(ubicacion){
+                console.log(ubicacion);
+               var marker= L.marker([ubicacion.coords.latitude, ubicacion.coords.longitude]).addTo(map);
+               marker.bindPopup("<b>Aqui esta usted</b>").openPopup();
+              
+                             }
+            
+            function errorGPS(){
+                alert(" no puedo encontrarte :(")
+            }
+            
+
+//fin de posicionamiento con gps
+
+
+    $(document).ready(function() {
+
+      
+      map = L.map('map').setView([-54.702329, -68.128243], 13); // center on laguna esmeralda
+     
+
+      mostrarUbicacion();
+
+    // muestra mapa o imagen georeferenciada en base a si hay conexion a internet o no
+     
+     /*  networkState=navigator.network.connection.type;
+
+       if (networkState==connection.NONE){
+
+           var image = 'img/esmeraldita.png',
+           imageBounds = [[-54.749892, -68.15918], [-54.673831, -68.071461]];
+
+           L.imageOverlay(image, imageBounds).addTo(map);
+
+
+       }else{   
+
+        */
+
+
+   
+
+     //capa de puntos hecha a mano 
+     // primer tramo
+     
+
+       var circle = L.circle([-54.721511, -68.121956], 20, {
+       color: 'blue',
+      // fillColor: '#f03',
+       fillOpacity: 1
+       }).addTo(map);
+
+       
+
+         var circle = L.circle([-54.720774, -68.121634], 20, {
+       color: 'blue',
+      // fillColor: '#f03',
+       fillOpacity: 1
+       }).addTo(map);
+
+          var circle = L.circle([-54.719944, -68.121613], 20, {
+       color: 'blue',
+      // fillColor: '#f03',
+       fillOpacity: 1
+       }).addTo(map);
+
+           var circle = L.circle([-54.719349, -68.121141], 20, {
+       color: 'blue',
+      // fillColor: '#f03',
+       fillOpacity: 1
+       }).addTo(map);
+
+            var circle = L.circle([-54.719200, -68.120068], 20, {
+       color: 'blue',
+       fillOpacity: 1
+       }).addTo(map);
+
+        var circle = L.circle([-54.719076, -68.119210], 20, {
+       color: 'blue',
+      // fillColor: '#f03',
+       fillOpacity: 1
+       }).addTo(map);
+
+
+       var circle = L.circle([-54.719002, -68.118223], 20, {
+       color: 'blue',
+      // fillColor: '#f03',
+       fillOpacity: 1
+       }).addTo(map);
+
+
+       var circle = L.circle([-54.718531, -68.117493], 20, {
+       color: 'blue',
+      // fillColor: '#f03',
+       fillOpacity: 1
+       }).addTo(map);
+
+
+
+            var circle = L.circle([-54.718085, -68.116978], 20, {
+       color: 'blue',
+       fillOpacity: 1
+       }).addTo(map);
+
+
+            var circle = L.circle([-54.717614, -68.116721], 20, {
+       color: 'blue',
+       fillOpacity: 1
+       }).addTo(map);
+
+
+            var circle = L.circle([-54.717143, -68.116549], 20, {
+       color: 'blue',
+       fillOpacity: 1
+       }).addTo(map);
+
+
+            var circle = L.circle([-54.716473, -68.116506], 20, {
+       color: 'blue',
+       fillOpacity: 1
+       }).addTo(map);
+
+
+            var circle = L.circle([-54.715978, -68.116806], 20, {
+       color: 'blue',
+       fillOpacity: 1
+       }).addTo(map);
+
+
+            var circle = L.circle([-54.715531, -68.117364], 20, {
+       color: 'blue',
+       fillOpacity: 1
+       }).addTo(map);
+
+
+            var circle = L.circle([-54.715333, -68.117879], 20, {
+       color: 'blue',
+       fillOpacity: 1
+       }).addTo(map);
+
+
+            var circle = L.circle([-54.714887, -68.118781], 20, {
+       color: 'blue',
+       fillOpacity: 1
+       }).addTo(map);
+
+
+            var circle = L.circle([-54.714614, -68.119939], 20, {
+       color: 'blue',
+       fillOpacity: 1
+       }).addTo(map);
+
+
+            var circle = L.circle([-54.714391, -68.120969], 20, {
+       color: 'blue',
+       fillOpacity: 1
+       }).addTo(map);
+
+
+            var circle = L.circle([-54.714118, -68.121398], 20, {
+       color: 'blue',
+       fillOpacity: 1
+       }).addTo(map);
+
+
+
+   //segundo tramo
+
+
+            var circle = L.circle([-54.713870, -68.121098], 20, {
+       color: 'yellow',
+       fillOpacity: 1
+       }).addTo(map);
+
+             var circle = L.circle([-54.713722, -68.120240], 20, {
+       color: 'yellow',
+       fillOpacity: 1
+       }).addTo(map);
+
+              var circle = L.circle([-54.713474, -68.119510], 20, {
+       color: 'yellow',
+       fillOpacity: 1
+       }).addTo(map);
+
+
+       var circle = L.circle([-54.713077, -68.118823], 20, {
+       color: 'yellow',
+       fillOpacity: 1
+       }).addTo(map);
+
+        var circle = L.circle([-54.712507, -68.118738], 20, {
+       color: 'yellow',
+       fillOpacity: 1
+       }).addTo(map);
+
+       var circle = L.circle([-54.711986, -68.118866], 20, {
+       color: 'yellow',
+       fillOpacity: 1
+       }).addTo(map);
+
+        var circle = L.circle([-54.711639, -68.119510], 20, {
+       color: 'yellow',
+       fillOpacity: 1
+       }).addTo(map);
+
+         
+//tercer tramo
+
+
+         var circle = L.circle([-54.711441, -68.120454], 20, {
+       color: 'red',
+       fillOpacity: 1
+       }).addTo(map);
+
+
+
+          var circle = L.circle([-54.711094, -68.121012], 20, {
+       color: 'red',
+       fillOpacity: 1
+       }).addTo(map);
+
+            var circle = L.circle([-54.710895, -68.121870], 20, {
+       color: 'red',
+       fillOpacity: 1
+       }).addTo(map);
+
+              var circle = L.circle([-54.710697, -68.123072], 20, {
+       color: 'red',
+       fillOpacity: 1
+       }).addTo(map);
+
+                var circle = L.circle([-54.710276, -68.124789], 20, {
+       color: 'red',
+       fillOpacity: 1
+       }).addTo(map);
+
+                  var circle = L.circle([-54.709755, -68.126119], 20, {
+       color: 'red',
+       fillOpacity: 1
+       }).addTo(map);
+
+                    var circle = L.circle([-54.709532, -68.127492], 20, {
+       color: 'red',
+       fillOpacity: 1
+       }).addTo(map);
+
+                      var circle = L.circle([-54.708838, -68.128351], 20, {
+       color: 'red',
+       fillOpacity: 1
+       }).addTo(map);
+
+                        var circle = L.circle([-54.708218, -68.128608], 20, {
+       color: 'red',
+       fillOpacity: 1
+       }).addTo(map);
+
+                          var circle = L.circle([-54.707548, -68.128866], 20, {
+       color: 'red',
+       fillOpacity: 1
+       }).addTo(map);
+
+                           var circle = L.circle([-54.706780, -68.129896], 20, {
+       color: 'red',
+       fillOpacity: 1
+       }).addTo(map);
+
+                            var circle = L.circle([-54.706036, -68.130840], 20, {
+       color: 'red',
+       fillOpacity: 1
+       }).addTo(map);
+
+                             var circle = L.circle([-54.705441, -68.131655], 20, {
+       color: 'red',
+       fillOpacity: 1
+       }).addTo(map);
+
+                              var circle = L.circle([-54.704870, -68.132513], 20, {
+       color: 'red',
+       fillOpacity: 1
+       }).addTo(map);
+
+                               var circle = L.circle([-54.704127, -68.133458], 20, {
+       color: 'red',
+       fillOpacity: 1
+       }).addTo(map);
+
+                                var circle = L.circle([-54.703507, -68.134144], 20, {
+       color: 'red',
+       fillOpacity: 1
+       }).addTo(map);
+
+                                 var circle = L.circle([-54.703234, -68.134445], 20, {
+       color: 'red',
+       fillOpacity: 1
+       }).addTo(map);
+
+                                  var circle = L.circle([-54.702664, -68.134316], 20, {
+       color: 'red',
+       fillOpacity: 1
+       }).addTo(map);
+
+                                  
+//cuarto tramo
+                   var circle = L.circle([-54.702093, -68.133930], 20, {
+       color: 'white',
+       fillOpacity: 1
+       }).addTo(map);
+
+                 var circle = L.circle([-54.701548, -68.133372], 20, {
+       color: 'white',
+       fillOpacity: 1
+       }).addTo(map);
+
+                var circle = L.circle([-54.700779, -68.133801], 20, {
+       color: 'white',
+       fillOpacity: 1
+       }).addTo(map);
+
+        var circle = L.circle([-54.699750, -68.133822], 20, {
+       color: 'white',
+       fillOpacity: 1
+       }).addTo(map);
+
+
+ var circle = L.circle([-54.698758, -68.133222], 20, {
+       color: 'white',
+       fillOpacity: 1
+       }).addTo(map);
+
+ var circle = L.circle([-54.698063, -68.131677], 20, {
+       color: 'white',
+       fillOpacity: 1
+       }).addTo(map);
+
+ var circle = L.circle([-54.697121, -68.130990], 20, {
+       color: 'white',
+       fillOpacity: 1
+       }).addTo(map);
+
+ var circle = L.circle([-54.696129, -68.130475], 20, {
+       color: 'white',
+       fillOpacity: 1
+       }).addTo(map);
+
+ var circle = L.circle([-54.695335, -68.129016], 20, {
+       color: 'white',
+       fillOpacity: 1
+       }).addTo(map);
+
+ var circle = L.circle([-54.694641, -68.127643], 20, {
+       color: 'white',
+       fillOpacity: 1
+       }).addTo(map);
+
+ var circle = L.circle([-54.693698, -68.127213], 20, {
+       color: 'white',
+       fillOpacity: 1
+       }).addTo(map);
+
+ var circle = L.circle([-54.692607, -68.127728], 20, {
+       color: 'white',
+       fillOpacity: 1
+       }).addTo(map);
+
+ var circle = L.circle([-54.692210, -68.129273], 20, {
+       color: 'white',
+       fillOpacity: 1
+       }).addTo(map);
+
+
+       
+    // Agregamos Base para Google Satellite     
+      map.addLayer(new L.Google('SATELLITE'));
+
+// } //fin del else, este esta relacionado con el if del network connection
+
+
+  }); // document ready
+
+   
+</script>
+
+  </body>
+</html>
